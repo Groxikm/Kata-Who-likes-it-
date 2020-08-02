@@ -1,0 +1,25 @@
+using System;
+
+public static class Kata
+{
+    public static string Likes(string[] name)
+    {
+      int length = name.Length; // it is possible not to use memory for this variable
+        string[] outputPattern = { "no one likes this", 
+                               
+                                "{0} likes this", 
+                               
+                                "{0} and {1} like this", 
+                               
+                                "{0}, {1} and {2} like this",
+                                
+                                "{0}, {1} and {2} others like this" 
+                              };
+                                     
+        return length < 4 ? string.Format(outputPattern[length], name) : 
+                            string.Format(outputPattern[4], name[0], name[1], length - 2);
+                            
+    // now we need to put a string of names separated by " " into the metod and we will
+    // get following: input( Thomas Anna Hans ) output( Thomas, Anna and Hans like it).
+    }
+}
